@@ -29,17 +29,24 @@ export const Name = styled.div`
   ${textRegularBold()};
 
   margin-bottom: ${px(Space.S)};
-  min-width: 165px;
+  min-height: 14px;
+  min-width: 200px;
 `;
 
 export const City = styled.div`
   ${textRegular()};
 
-  min-width: 65px;
+  min-height: 14px;
+  min-width: 100px;
 `;
 
 export const Specialties = styled.div`
   display: flex;
+
+  > ${Tag} {
+    min-height: 14px;
+    min-width: 32px;
+  }
 
   > ${Tag} + ${Tag} {
     margin-left: ${px(Space.S)};
@@ -54,6 +61,7 @@ export const Company = styled.div`${({ theme }) => css`
   display: flex;
   justify-content: space-between;
   max-width: 100%;
+  overflow: hidden;
   padding: ${px(Space.M)};
   width: 640px;
 
@@ -61,6 +69,10 @@ export const Company = styled.div`${({ theme }) => css`
     margin-top: ${px(Space.S)};
   }
 
+  // #NoteToReviewer
+  // I know this is not the most universal solution, as skeletonLoaderPrepare() overrides
+  // :befores and :afters. This should be done with additional markup elements, but it
+  // works perfectly, for this simple app.
   ${LogoContainer},
   ${Name},
   ${City},
@@ -74,6 +86,15 @@ export const Company = styled.div`${({ theme }) => css`
     ${City},
     ${Specialties} > ${Tag} {
       ${skeletonLoaderPlay()};
+    }
+  }
+
+  @media (max-width: 1024px) {
+    display: block;
+    width: 100%;
+
+    > ${Specialties} {
+      margin-top: ${px(Space.M)};
     }
   }
 `}`;

@@ -1,0 +1,42 @@
+[
+  {
+    "city": "Des Moines",
+    "id": "c47034b3-27dd-4e60-b53b-7e3a37124c4a",
+    "logoUrl": "https://placekitten.com/30/30",
+    "name": "Reynolds, Cole and Donnelly",
+    "specialties": [
+      {
+        "id": "477fd246-0f79-4a73-8b11-9f7a54f517c6",
+        "label": "Architecture"
+      },
+      {
+        "id": "9ff6d8c6-8382-44bf-b5a2-258bc255a09b",
+        "label": "Excavation"
+      },
+      {
+        "id": "4872cd45-c81b-47bf-88b9-964fb439484f",
+        "label": "Electrical"
+      }
+    ]
+  },
+  {
+    "city": "Lauderhill",
+    "id": "cdd3c95a-6d65-4240-808d-40bf4b13cde6",
+    "logoUrl": "https://placekitten.com/32/36",
+    "name": "Grant, Torphy and Wehner",
+    "specialties": [
+      {
+        "id": "125204fe-31c3-4077-9f86-e55af0dac9b4",
+        "label": "Roofing"
+      },
+      {
+        "id": "054a06d6-71c2-47a2-b16c-370d75e88c37",
+        "label": "Construction"
+      },
+      {
+        "id": "4872cd45-c81b-47bf-88b9-964fb439484f",
+        "label": "Electrical"
+      }
+    ]
+  }
+]

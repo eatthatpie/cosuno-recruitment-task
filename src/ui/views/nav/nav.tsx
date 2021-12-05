@@ -10,7 +10,10 @@ export function Nav(): React.ReactElement {
 
   const [data, setData] = React.useState<any[]>([]);
 
-  const { applyNamePattern, applySpecialties } = React.useContext(ListParamsContext);
+  const {
+    applyNamePattern,
+    applySpecialties
+  } = React.useContext(ListParamsContext);
 
   const handleTextFieldChange = React.useMemo(
     () => debounce((e) => {
@@ -34,10 +37,12 @@ export function Nav(): React.ReactElement {
 
   return (
     <S.Nav>
+      {/* #NoteToReviewer This component should be controlled, and params.specialties should define its state. */}
       <S.TextField
         onChange={handleTextFieldChange}
         placeholder="Search by name"
       />
+      {/* #NoteToReviewer This component should be controlled, and params.specialties should define its state. */}
       <Checklist
         items={data}
         onChange={handleChecklistChange}

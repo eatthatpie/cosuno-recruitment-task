@@ -22,6 +22,7 @@ export const App = styled.div`${({ theme }) => css`
 
   @media (max-width: 1024px) {
     display: block;
+    padding: ${px(Space.M)};
 
     > * + * {
       margin-left: 0;
@@ -31,9 +32,5 @@ export const App = styled.div`${({ theme }) => css`
       position: static;
       width: 100%;
     }
-  }
-
-  @media (max-width: 768px) {
-    padding: ${px(Space.M)};
   }
 `}`;

@@ -45,7 +45,7 @@ export const skeletonLoaderPrepare = () => css`${({ theme }) => css`
   &:after {
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.2s ease-in-out;
+    transition: opacity 0.1s ease-in-out;
   }
 
   &:before {

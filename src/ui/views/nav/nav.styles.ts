@@ -31,4 +31,9 @@ export const Nav = styled.div`
     margin-bottom: ${px(Space.L)};
     width: calc(100% - ${px(2 * Space.M)});
   }
+
+  @media (max-width: 1024px) {
+    margin-bottom: ${px(Space.S)};
+    width: 100%;
+  }
 `;

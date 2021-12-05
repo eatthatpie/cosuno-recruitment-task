@@ -5,6 +5,7 @@ import * as S from './company.styles';
 export interface CompanyProps {
   city?: string;
   imageUrl?: string;
+  isLoading?: boolean;
   name?: string;
   specialties?: string[];
 }
@@ -12,20 +13,18 @@ export interface CompanyProps {
 export function Company({
   city,
   imageUrl,
+  isLoading,
   name,
   specialties,
 }: CompanyProps): React.ReactElement<CompanyProps> {
-  const [isLoading, setIsLoading] = React.useState(true);
+  const [displaySkeleton, setDisplaySkeleton] = React.useState(isLoading);
 
   React.useEffect(() => {
-    console.log(process.env)
-    setTimeout(() => {
-      setIsLoading(false)
-    }, 1);
-  }, []);
+    setDisplaySkeleton(isLoading);
+  }, [displaySkeleton, isLoading]);
 
   return (
-    <S.Company className={isLoading ? 'is-loading' : ''}>
+    <S.Company className={displaySkeleton ? 'is-loading' : ''}>
       <S.InfoContainer>
         <S.LogoContainer>
           <img
@@ -45,7 +44,11 @@ export function Company({
         </S.NameAndCityContainer>
       </S.InfoContainer>
       <S.Specialties>
-        {specialties?.map((specialty) => <Tag label={specialty} />)}
+        {
+          specialties?.length
+            ? specialties.map((specialty, index) => <Tag key={index} label={specialty} />)
+            : <Tag label="" key={0} />
+        }
       </S.Specialties>
     </S.Company>
   );

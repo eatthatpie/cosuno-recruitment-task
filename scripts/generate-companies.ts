@@ -56,4 +56,10 @@ const persist = (companies: CompanyPersistenceModel[]) => {
   }
 }
 
-persist(generateCompanies(parseInt(process.argv[2] || '10')));
+const count = parseInt(process.argv[2] || '10');
+
+if (count > 300) {
+  console.error('Error: Please generate no more than 300 companies');
+} else {
+  persist(generateCompanies(count));
+}
