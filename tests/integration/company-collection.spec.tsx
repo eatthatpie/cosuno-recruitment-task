@@ -43,7 +43,7 @@ describe('Integration test: Company collection view', () => {
 
       await waitFor(() => {
         expect(fetch.mock.calls[0][0])
-          .toEqual('http://test.host/api/company?namePattern=&specialties=&limit=9999');
+          .toEqual('http://test.host/api/company?namePattern=&specialties=&limit=300');
       });
     });
   });
@@ -64,8 +64,8 @@ describe('Integration test: Company collection view', () => {
       );
 
       await waitFor(() => {
-        expect(fetch.mock.calls[0][0])
-          .toEqual('http://test.host/api/company?namePattern=&specialties=&limit=9999');
+        expect(fetch.mock.calls[1][0])
+          .toEqual('http://test.host/api/company?namePattern=test-pattern&specialties=test-id-1%2Ctest-id-2&limit=300');
       });
     });
   });
@@ -85,7 +85,7 @@ describe('Integration test: Company collection view', () => {
   });
 
   describe('when data is fetched successfully', () => {
-    // #NoteToReviewer
+    // #NotesToReviewer
     // We could test rendering of other fields here, like specialties, images etc.
     it('renders fetched data', async () => {
       fetch.mockResponse(JSON.stringify(companyCollectionValidMock));

@@ -3,7 +3,7 @@ import { getCompanyCollection } from '../../container';
 import { StatusCodes } from '../../http/status-codes';
 import { CompanyMap } from './../mappers/company-map';
 
-// #NoteToReviewer
+// #NotesToReviewer
 // In real app we should handle errors here. At this point, the endpoint can return
 // unexpected errors only (500), i.e. there are no domain errors.
 export const handleGet = async (req: express.Request, res: express.Response) => {

@@ -45,6 +45,9 @@ export function Company({
       </S.InfoContainer>
       <S.Specialties>
         {
+          // #NotesToReviewer
+          // This key={index} is used on purpose here. I WANT the components not to unmount
+          // when proper data is rendered.
           specialties?.length
             ? specialties.map((specialty, index) => <Tag key={index} label={specialty} />)
             : <Tag label="" key={0} />

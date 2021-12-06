@@ -7,11 +7,11 @@ import { useConfig } from '../../hooks/use-config';
 import * as S from './company-collection.styles';
 
 export function CompanyCollection(): React.ReactElement {
-  // #NoteToReviewer
+  // #NotesToReviewer
   // We should use CompanyViewModel here, instead of any.
   const [data, setData] = React.useState<any[]>(makeArray(10));
 
-  // #NoteToReviewer
+  // #NotesToReviewer
   // This is probably not the smartest solution ever, since there is no safety belt
   // in case when the number of calls was counted improperly. But the general idea
   // of keeping track of async calls works fine in this case.
@@ -24,19 +24,19 @@ export function CompanyCollection(): React.ReactElement {
   React.useEffect(() => {
     registerCall();
 
-    // #NoteToReviewer
+    // #NotesToReviewer
     // This could be handled by request mapper.
     const preparedParams = {
       namePattern: params.namePattern || "",
       specialties: params.specialties?.join(',') || ""
     };
 
-    // #NoteToReviewer
+    // #NotesToReviewer
     // Limit is hardcoded here as we don't handle pagination yet.
     fetch(`${apiHost}/api/company?${new URLSearchParams(preparedParams).toString()}&limit=300`)
       .then((response) => response.json())
       .then((json) => {
-        // #NoteToReviewer
+        // #NotesToReviewer
         // Mapping is missing here. We could do: setData(CompanyMap.toViewModel(json)).
         setData(json);
       })
@@ -51,7 +51,7 @@ export function CompanyCollection(): React.ReactElement {
   }, [apiHost, params.namePattern, params.specialties]);
 
   return (
-    // #NoteToReviewer
+    // #NotesToReviewer
     // This is-loading does nothing at this point. It is used for testing purposes, and
     // should be refactored along with managing visual state of company list being in
     // loading state.
@@ -66,6 +66,9 @@ export function CompanyCollection(): React.ReactElement {
               imageUrl={item.logoUrl}
               isLoading={isLoading}
               name={item.name}
+              // #NotesToReviewer
+              // This key={index} is used on purpose here. I WANT the components not to unmount
+              // when proper data is rendered.
               key={index}
               specialties={
                 item.specialties

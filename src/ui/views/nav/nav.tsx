@@ -37,12 +37,12 @@ export function Nav(): React.ReactElement {
 
   return (
     <S.Nav>
-      {/* #NoteToReviewer This component should be controlled, and params.specialties should define its state. */}
+      {/* #NotesToReviewer This component should be controlled, and params.specialties should define its state. */}
       <S.TextField
         onChange={handleTextFieldChange}
         placeholder="Search by name"
       />
-      {/* #NoteToReviewer This component should be controlled, and params.specialties should define its state. */}
+      {/* #NotesToReviewer This component should be controlled, and params.specialties should define its state. */}
       <Checklist
         items={data}
         onChange={handleChecklistChange}

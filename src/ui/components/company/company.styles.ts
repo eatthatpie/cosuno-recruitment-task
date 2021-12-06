@@ -69,7 +69,7 @@ export const Company = styled.div`${({ theme }) => css`
     margin-top: ${px(Space.S)};
   }
 
-  // #NoteToReviewer
+  // #NotesToReviewer
   // I know this is not the most universal solution, as skeletonLoaderPrepare() overrides
   // :befores and :afters. This should be done with additional markup elements, but it
   // works perfectly, for this simple app.

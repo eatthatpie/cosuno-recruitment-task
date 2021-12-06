@@ -11,7 +11,7 @@ export interface GetCompanyCollectionRequest {
 
 export type GetCompanyCollection = (request: GetCompanyCollectionRequest) => Promise<Company[]>;
 
-// #NoteToReviewer
+// #NotesToReviewer
 // Domain errors handling is not implemented here.
 export function createGetCompanyCollectionUseCase(dataSource: ICompanyDataSource): GetCompanyCollection {
     return async (request: GetCompanyCollectionRequest) => {

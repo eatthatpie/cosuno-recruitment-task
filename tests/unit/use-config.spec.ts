@@ -4,7 +4,7 @@ import { useConfig } from '../../src/ui/hooks/use-config';
 const envs = process.env;
 
 describe('useConfig', () => {
-  // #NoteToReviewer
+  // #NotesToReviewer
   // I know it doesn't seem safe, but I know what I'm doing in this small test suite.
   process.env.REACT_APP_API_HOST = 'http://test.host';
   process.env.REACT_APP_DEBOUNCE_TIMEOUT = '300';
